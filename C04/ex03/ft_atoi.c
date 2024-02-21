@@ -6,43 +6,33 @@
 /*   By: thmouty <thmouty@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:41:06 by thmouty           #+#    #+#             */
-/*   Updated: 2024/02/21 17:55:32 by thmouty          ###   ########.fr       */
+/*   Updated: 2024/02/21 20:59:31 by thmouty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+int	ft_atoi(char *str)
 {
-	write(1, &c, 1);
-}
-
-int ft_isspace(char str)
-{
-	return ((str == ' ' || str == '\\n'
-		|| str == '\\t' || str == '\\v'
-		|| str == '\\f' || str == '\\r'));
-}
-
-int ft_atoi(char *str)
-{
-	int i;
+	int	i;
 	int	sign;
 	int	result;
 
-	while (str[i])
-	{
-		if (ft_isspace(str[i]))
-			i++;
-	}
-	while ()
-	{
-		
-	}
+	i = 0;
+	sign = 1;
+	while (((str[i] >= 9 && str[i] <= 13) || str[i] == 32) && str[i])
+		i++;
+	while (str[i] == '+' || str[i] == '-')
+		if (str[i++] == '-')
+			sign = -sign;
+	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+		result = result * 10 + str[i++] - '0';
+	return (sign * result);
 }
 
-int	main(void)
+/*int	main(void)
 {
-	ft_atoi("---+--+1234ab567");
+	int res = ft_atoi("-2147483649");
+	printf("%d", res);
 	return (0);
-}
+}*/

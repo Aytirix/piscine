@@ -6,7 +6,7 @@
 /*   By: thmouty <thmouty@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 15:29:10 by thmouty           #+#    #+#             */
-/*   Updated: 2024/02/19 18:14:45 by thmouty          ###   ########.fr       */
+/*   Updated: 2024/02/21 20:50:39 by thmouty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,9 @@ void	ft_strlowcase(char *str)
 
 int	ft_str_is_alpha_num(char *str)
 {
-	if ((*str >= 'a' && *str <= 'z')
+	return ((*str >= 'a' && *str <= 'z')
 		|| (*str >= 'A' && *str <= 'Z')
-		|| (*str >= '0' && *str <= '9'))
-		return (1);
-	return (0);
+		|| (*str >= '0' && *str <= '9'));
 }
 
 char	*ft_strcapitalize(char *str)
