@@ -6,7 +6,7 @@
 /*   By: thmouty <thmouty@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:41:06 by thmouty           #+#    #+#             */
-/*   Updated: 2024/02/21 20:59:31 by thmouty          ###   ########.fr       */
+/*   Updated: 2024/02/21 21:11:52 by thmouty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_atoi(char *str)
 	int	sign;
 	int	result;
 
+	result = 0;
 	i = 0;
 	sign = 1;
 	while (((str[i] >= 9 && str[i] <= 13) || str[i] == 32) && str[i])
