@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmouty <thmouty@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 11:41:06 by thmouty           #+#    #+#             */
-/*   Updated: 2024/02/22 15:17:22 by thmouty          ###   ########.fr       */
+/*   Created: 2024/02/22 15:15:50 by thmouty           #+#    #+#             */
+/*   Updated: 2024/02/22 15:57:18 by thmouty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,16 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-void	ft_putstr(char *str)
+int	main(int argc, char *argv[])
 {
-	write(1, str, ft_strlen(str));
-}
+	int	i;
 
-/*int main(void)
-{
-	int res = ft_putstr("salut");
+	i = 1;
+	while (i < argc)
+	{
+		write(1, argv[i], ft_strlen(argv[i]));
+		write(1, "\n", 1);
+		i++;
+	}
 	return (0);
-}*/
+}

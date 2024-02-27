@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmouty <thmouty@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 09:54:44 by thmouty           #+#    #+#             */
-/*   Updated: 2024/02/22 18:07:59 by thmouty          ###   ########.fr       */
+/*   Created: 2024/02/22 15:15:50 by thmouty           #+#    #+#             */
+/*   Updated: 2024/02/27 13:05:20 by thmouty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	ft_swap(int *a, int *b)
 {
@@ -33,23 +35,26 @@ void	ft_sort_int_tab(int *tab, int size)
 		while (j < size)
 		{
 			if (tab[j] < tab[min_index])
-			{
 				min_index = j;
-			}
 			j++;
 		}
 		if (min_index != i)
-		{
 			ft_swap(&tab[min_index], &tab[i]);
-		}
 		i++;
 	}
 }
-/*int	main(void)
+
+int	main(int argc, char *argv[])
 {
-	int tab[15] = {25,4,5,65,2,48,1,4,8,6,6,48,458,5};
-	ft_sort_int_tab(tab, 15);
-	int i = 0;
-	printf("%d", tab);
+	int	i;
+
+	i = 0;
+	argc -= 1;
+	while (argc > i)
+	{
+		write(1, argv[argc], ft_strlen(argv[argc]));
+		write(1, "\n", 1);
+		argc--;
+	}
 	return (0);
-}*/
+}

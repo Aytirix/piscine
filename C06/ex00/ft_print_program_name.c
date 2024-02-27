@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmouty <thmouty@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 11:41:06 by thmouty           #+#    #+#             */
-/*   Updated: 2024/02/22 15:17:22 by thmouty          ###   ########.fr       */
+/*   Created: 2024/02/22 12:23:06 by thmouty           #+#    #+#             */
+/*   Updated: 2024/02/22 16:00:19 by thmouty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_strlen(char *str)
+int	main(int argc, char *argv[])
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-void	ft_putstr(char *str)
-{
-	write(1, str, ft_strlen(str));
-}
-
-/*int main(void)
-{
-	int res = ft_putstr("salut");
+	while (argv[0][i] != '\0')
+		write(1, &argv[0][i++], 1);
 	return (0);
-}*/
+}
