@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmouty <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmouty <thmouty@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 09:03:27 by thmouty           #+#    #+#             */
-/*   Updated: 2024/02/14 09:58:59 by thmouty          ###   ########.fr       */
+/*   Updated: 2024/02/27 16:55:20 by thmouty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+
 
 void	ft_putchar(char c)
 {

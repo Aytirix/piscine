@@ -3,3 +3,4 @@ piscine.code-workspace
 */launch.json
 **/a.out
 
+.vscode/settings.json
