@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.c                                             :+:      :+:    :+:   */
+/*    ft_sqrt.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmouty <thmouty@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 09:41:45 by thmouty           #+#    #+#             */
-/*   Updated: 2024/02/27 09:41:45 by thmouty          ###   ########.fr       */
+/*   Created: 2024/02/27 15:52:04 by thmouty           #+#    #+#             */
+/*   Updated: 2024/02/27 15:52:04 by thmouty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
+int	ft_sqrt(int nb)
 {
-	if (nb < 0)
+	int	i;
+
+	if (nb < 0 || nb == 2)
 		return (0);
-	if (nb == 1)
-		return (1);
-	return (nb * ft_recursive_factorial(nb - 1));
+	i = -1;
+	while (++i <= nb / 2 && i <= 46341)
+		if (i * i == nb)
+			return (i);
+	return (i);
 }
