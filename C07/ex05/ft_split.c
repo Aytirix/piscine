@@ -14,90 +14,100 @@
 #include <stdlib.h>
 #include <string.h>
 
-int	ft_strlen(char *str)
+int    ft_strlen(char *str)
 {
-	int	i;
+    int    i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+    i = 0;
+    while (str[i])
+        i++;
+    return (i);
 }
-char	*ft_strcpy(char *src, int start, int end)
+char    *ft_strcpy(char *src, int start, int end)
 {
-	int		i;
-	int		len;
-	char	*dest;
+    int        i;
+    int        len;
+    char    *dest;
 
-	dest = malloc(sizeof(char) * (end - start + 2));
-	if (dest == NULL)
-		return (NULL);
-	i = 0;
-	while (i < (end - start + 1))
-	{
-		dest[i] = src[start + i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+    dest = malloc(sizeof(char) * (end - start + 2));
+    if (dest == NULL)
+        return (NULL);
+    i = 0;
+    while (i < (end - start + 1))
+    {
+        dest[i] = src[start + i];
+        i++;
+    }
+    dest[i] = '\0';
+    return (dest);
 }
-char	*ft_strstrV2(char **pstr, char *charset)
+char    *ft_strstrV2(char *str, char *charset, int *endsplit)
 {
-	char	*str;
-	char	*strcpy;
-	int		i;
-	int		j;
-	int		se[3];
+    int i = *endsplit;
+    int        j = 0;
+    int        se[3] = {-1, 0, 0};
 
-	str = *pstr;
-	strcpy = str;
-	i = 0;
-	j = 0;
-	se[0] = -1;
-	se[1] = ft_strlen(str);
-	se[2] = se[1];
-	while (str[i] && (se[0] == -1 || se[1] == se[2]))
-	{
-		j = 0;
-		while (str[i + j] == charset[j] || charset[j] == '\0')
-		{
-			if (charset[j] == '\0')
-			{
-				if (se[0] == -1)
-					se[0] = i + j;
-				else
-					se[1] = i;
-				break ;
-			}
-			j++;
-		}
-		i++;
-	}
-	*pstr = &str[se[1]];
-	return (ft_strcpy(strcpy, se[0], se[1] - 1));
+    se[1] = ft_strlen(str);
+    se[2] = se[1];
+    while (str[i] && (se[0] == -1 || se[1] == se[2]))
+    {
+        j = 0;
+        while (str[i + j] == charset[j] || charset[j] == '\0')
+        {
+            if (charset[j] == '\0')
+            {
+                if (se[0] == -1)
+                    se[0] = i + j;
+                else
+                    se[1] = i;
+                break ;
+            }
+            j++;
+        }
+        i++;
+    }
+    *endsplit = se[1] + j;
+    return (ft_strcpy(str, se[0], se[1] - 1));
 }
 
-char	**ft_split(char *str, char *charset)
+char    **ft_split(char *str, char *charset)
 {
-	int		i;
-	int		lendest;
-	char	**dest;
+    int i;
+    int j;
+    int        lendest;
+    char    **dest;
+    char    **destcpy;
+    char *strsplit;
 
-	i = 0;
-	while (str[i])
-	{
-		break ;
-	}
-	return (dest);
+    i = 0;
+    lendest = 0;
+    dest = malloc(sizeof(char *) + lendest);
+    while (str[i])
+    {
+        destcpy = dest;
+        strsplit = ft_strstrV2(str, charset, &i);
+        lendest++;
+        dest = malloc(sizeof(char *) + lendest);
+        j = 0;
+        while(j < lendest - 1)
+        {
+          dest[j] = destcpy[j];
+          j++;
+        }
+        free(destcpy);
+        dest[j] = strsplit;
+    }
+    //dest[strsplit] = "0";
+    return (dest);
 }
 
-int	main(void)
+int    main(void)
 {
-	int		size;
-	char	str[20] = "salut salot alutaow";
-	char	charset[3] = "sa";
-	char	*end;
+    int        size;
+    char    str[] = "a b c";
+    char    charset[] = " ";
+    char    *end;
 
-	ft_strstrV2(&str, charset);
-	printf("%s", str);
+    ft_split(str, charset);
+    printf("%s", str);
 }
