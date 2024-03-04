@@ -12,13 +12,24 @@
 
 int	ft_sqrt(int nb)
 {
-	int	i;
+	float max;
+	float min;
+	float m;
+	int i;
 
-	if (nb < 0 || nb == 2)
-		return (0);
-	i = -1;
-	while (++i <= nb / 2 && i <= 46341)
-		if (i * i == nb)
-			return (i);
-	return (i);
+	max = 46340;
+	min = 0;
+	i = 0;
+	while(i < 50)
+	{
+		m = (min + max) / 2;
+		if ((int)m * (int)m == nb)
+			return (m);
+		else if((int)m * (int)m > nb)
+			max = m;
+		else
+			min = m;
+		i++;
+	}
+	return (0);
 }
